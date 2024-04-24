@@ -42,6 +42,7 @@ int knapSack(int W, int wt[], int val[], int n)
 }
 
 // Definition of printTable function
+// Definition of printTable function
 void printTable(int n, int W, int wt[], int K[n + 1][W + 1])
 {
     printf("Table:\n");
@@ -58,20 +59,24 @@ void printTable(int n, int W, int wt[], int K[n + 1][W + 1])
     int w = W;
     for (int i = n; i > 0 && w > 0; i--)
     {
-        // either the result comes from the top (K[i-1][w]) or from (val[i-1] + K[i-1][w-wt[i-1]]) as in Knapsack table.
-        // If it comes from the latter one/ it means the item is included.
         if (K[i][w] != K[i - 1][w])
         {
             printf("x%d = 1\n", i); // This item is included.
-
-            // Since this weight is included its value is deducted
             w = w - wt[i - 1];
         }
-        else
+    }
+
+    printf("\nOr simply, Items: ");
+    w = W;
+    for (int i = 1; i <= n && w > 0; i++)
+    {
+        if (K[i][w] != K[i - 1][w])
         {
-            printf("x%d = 0\n", i); // This item is not included.
+            printf("%d ", i); // This item is included.
+            w = w - wt[i - 1];
         }
     }
+    printf("\n");
 }
 
 int main()
