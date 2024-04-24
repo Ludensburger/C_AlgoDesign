@@ -4,7 +4,7 @@
 int max(int a, int b) { return (a > b) ? a : b; }
 
 // Function prototype for printTable
-void printTable(int n, int W, int K[n + 1][W + 1]);
+void printTable(int n, int W, int wt[], int K[n + 1][W + 1]);
 
 // Returns the maximum value that can be put in a knapsack of capacity W
 int knapSack(int W, int wt[], int val[], int n)
@@ -36,13 +36,13 @@ int knapSack(int W, int wt[], int val[], int n)
         }
     }
 
-    printTable(n, W, K);
+    printTable(n, W, wt, K);
 
     return K[n][W];
 }
 
 // Definition of printTable function
-void printTable(int n, int W, int K[n + 1][W + 1])
+void printTable(int n, int W, int wt[], int K[n + 1][W + 1])
 {
     printf("Table:\n");
     for (int i = 0; i <= n; i++)
@@ -53,14 +53,39 @@ void printTable(int n, int W, int K[n + 1][W + 1])
         }
         printf("\n");
     }
+
+    printf("\nIncluded items:\n");
+    int w = W;
+    for (int i = n; i > 0 && w > 0; i--)
+    {
+        // either the result comes from the top (K[i-1][w]) or from (val[i-1] + K[i-1][w-wt[i-1]]) as in Knapsack table.
+        // If it comes from the latter one/ it means the item is included.
+        if (K[i][w] != K[i - 1][w])
+        {
+            printf("x%d = 1\n", i); // This item is included.
+
+            // Since this weight is included its value is deducted
+            w = w - wt[i - 1];
+        }
+        else
+        {
+            printf("x%d = 0\n", i); // This item is not included.
+        }
+    }
 }
 
 int main()
 {
-    int V[4] = {12, 10, 20, 15}; // Values of the items
-    int W[4] = {2, 1, 3, 2};     // Weights of the items
 
-    int n = 4;    // Number of items
+    // Weights of the items
+    int W[4] = {2, 1, 3, 2};
+
+    // Values of the items
+    int V[4] = {12, 10, 20, 15};
+
+    // Get the number of items
+    int n = sizeof(W) / sizeof(W[0]);
+
     int Wmax = 5; // Maximum weight that the knapsack can hold
 
     int result = knapSack(Wmax, W, V, n);
