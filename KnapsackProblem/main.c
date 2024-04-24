@@ -4,7 +4,7 @@
 int max(int a, int b) { return (a > b) ? a : b; }
 
 // Function prototype for printTable
-void printTable(int K[][8], int n, int W);
+void printTable(int n, int W, int K[n + 1][W + 1]);
 
 // Returns the maximum value that can be put in a knapsack of capacity W
 int knapSack(int W, int wt[], int val[], int n)
@@ -36,20 +36,20 @@ int knapSack(int W, int wt[], int val[], int n)
         }
     }
 
-    printTable(K, n, W);
+    printTable(n, W, K);
 
     return K[n][W];
 }
 
 // Definition of printTable function
-void printTable(int K[][8], int n, int W)
+void printTable(int n, int W, int K[n + 1][W + 1])
 {
     printf("Table:\n");
     for (int i = 0; i <= n; i++)
     {
         for (int w = 0; w <= W; w++)
         {
-            printf("%d  ", K[i][w]);
+            printf("%d   ", K[i][w]);
         }
         printf("\n");
     }
@@ -57,11 +57,11 @@ void printTable(int K[][8], int n, int W)
 
 int main()
 {
-    int V[4] = {15, 20, 30, 35}; // Values of the items
-    int W[4] = {1, 3, 4, 5};     // Weights of the items
+    int V[4] = {12, 10, 20, 15}; // Values of the items
+    int W[4] = {2, 1, 3, 2};     // Weights of the items
 
     int n = 4;    // Number of items
-    int Wmax = 7; // Maximum weight that the knapsack can hold
+    int Wmax = 5; // Maximum weight that the knapsack can hold
 
     int result = knapSack(Wmax, W, V, n);
 
