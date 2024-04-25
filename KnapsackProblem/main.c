@@ -99,6 +99,15 @@ int main() {
 
     int Wmax = 5; // Maximum weight that the knapsack can hold
 
+    printf("Knapsack Problem\n\n");
+
+    printf("Given Items:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Item %d: Weight: %d, Cost: $%d\n", i + 1, W[i], V[i]);
+    }
+
+    printf("\n");
+
     int result = knapSack(Wmax, W, V, n);
 
     printf("Maximum value that can be put in a knapsack of capacity %d is %d\n", Wmax, result);
