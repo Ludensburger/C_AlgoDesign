@@ -44,7 +44,15 @@ void printTable(int n, int W, int wt[], int K[n + 1][W + 1]) {
         printf("\n");
     }
 
-    printf("\nIncluded items:\n");
+    for (int i = 0; i < W * 5; i++) {
+        printf("-");
+    }
+
+    printf("^ Goal");
+
+    printf("\n\n");
+
+    printf("Included items:\n");
 
     int w = W;
     int included[n + 1];
