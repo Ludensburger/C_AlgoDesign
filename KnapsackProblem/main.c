@@ -34,7 +34,6 @@ int knapSack(int W, int wt[], int val[], int n) {
 }
 
 // Definition of printTable function
-// Definition of printTable function
 void printTable(int n, int W, int wt[], int K[n + 1][W + 1]) {
     printf("Table:\n");
 
