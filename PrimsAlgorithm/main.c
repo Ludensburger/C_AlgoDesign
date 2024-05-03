@@ -2,7 +2,7 @@
 #include <stdbool.h> // Include this for bool
 #include <stdio.h>
 
-#define V 5 // Number of vertices in the graph
+#define V 7 // Number of vertices in the graph
 
 int minWeight(int weight[], bool mstSet[]) {
 
@@ -28,10 +28,19 @@ int minWeight(int weight[], bool mstSet[]) {
     return min_index;
 }
 
+void printSumOfMinWeights(int weight[]) {
+    int sum = 0;
+    for (int i = 0; i < V; i++) {
+        sum += weight[i];
+    }
+    printf("Sum of all minimum weights: %d\n", sum);
+}
+
 void printMST(int parent[], int graph[V][V]) {
     printf("Edge   Weight\n");
-    for (int i = 1; i < V; i++)
-        printf("%d - %d    %d \n", parent[i], i, graph[i][parent[i]]);
+    for (int i = 1; i < V; i++) {
+        printf("%c - %c    %d \n", parent[i] + 'A', i + 'A', graph[i][parent[i]]);
+    }
 }
 
 void primMST(int graph[V][V]) {
@@ -89,17 +98,19 @@ void primMST(int graph[V][V]) {
     }
 
     printMST(parent, graph);
+    printSumOfMinWeights(weight);
 }
 
 int main() {
     int graph[V][V] = {
-
-        {0, 2, 0, 6, 0},
-        {2, 0, 3, 8, 5},
-        {0, 3, 0, 0, 7},
-        {6, 8, 0, 0, 9},
-        {0, 5, 7, 9, 0}
-
+        // 1   2    3    4    5    6    7
+        {0, 28, 0, 0, 0, 10, 0},  // 1
+        {28, 0, 16, 0, 0, 0, 14}, // 2
+        {0, 16, 0, 12, 0, 0, 0},  // 3
+        {0, 0, 12, 0, 22, 0, 0},  // 4
+        {0, 0, 0, 22, 0, 25, 24}, // 5
+        {10, 0, 0, 0, 25, 0, 0},  // 6
+        {0, 14, 0, 0, 24, 0, 0}   // 7
     };
 
     primMST(graph);
