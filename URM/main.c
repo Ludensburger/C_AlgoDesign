@@ -1,3 +1,6 @@
+// Author: Ryu R. Mendoza
+// Date: May 8, 2024
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
