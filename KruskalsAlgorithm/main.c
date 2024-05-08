@@ -98,14 +98,17 @@ struct Edge *KruskalMST(struct Graph *graph, int *edgeCount) {
     return result;
 }
 
-// Print MST edges with better visualization
+// Print MST edges with better visualization and minimum distance
 void printMST(struct Edge result[], int e) {
+    int totalDistance = 0;
     printf("Constructed Minimum Spanning Tree (MST):\n");
     printf("Edge   | Weight\n");
     printf("---------------\n");
     for (int i = 0; i < e; ++i) {
         printf("%c - %c   | %d\n", result[i].src + 'A', result[i].dest + 'A', result[i].weight);
+        totalDistance += result[i].weight;
     }
+    printf("Minimum distance of MST: %d\n", totalDistance);
 }
 
 int main() {
