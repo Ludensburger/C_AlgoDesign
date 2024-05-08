@@ -53,6 +53,10 @@ void execute(UnlimitedRegisterMachine *urm) {
             urm->registers[r1]++;
             pc++;
             break;
+        case 'T':
+            urm->registers[r2] = urm->registers[r1];
+            pc++;
+            break;
         case 'J':
             if (urm->registers[r1] == urm->registers[r2]) {
                 // For debugging purposes
