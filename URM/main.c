@@ -80,13 +80,14 @@ void execute(UnlimitedRegisterMachine *urm) {
     // Print output and non-zero registers
     printf("Output: %d\n", urm->registers[0]);
 
-    // For debugging purposes
-    // printf("\nNon-zero Registers: \n");
-    // for (int i = 0; i < MAX_REGISTERS; i++) {
-    //     if (urm->registers[i] != 0) {
-    //         printf("R%d: %d\n", i, urm->registers[i]);
-    //     }
-    // }
+    // print all the registers
+    printf("Registers: ");
+    for (int i = 0; i < MAX_REGISTERS; i++) {
+        if (urm->registers[i] != 0) {
+            printf("R%d=%d ", i, urm->registers[i]);
+        }
+    }
+    printf("\n");
 }
 
 int main() {
@@ -128,3 +129,33 @@ int main() {
 
     return 0;
 }
+
+/*
+
+Programming questions: Construct URM for each of the following. Do as many as you can in 55 minutes.
+1.	F(x,y) =  x if x< y
+               x-y if x? y
+
+Answer:
+    1. J(1, 2, 4) // checks if x < y
+    2. T(0, 3) // copies x to register 3
+    3. J(1, 1, 6) // goes to instruction 6 if x = y
+    4. S(3) // decrements x in register 3
+    5. J(3, 2, 4) // goes to instruction 4 if x >= y
+    6. T(3, 0) // copies the result to the first register
+
+
+2.	 F(x,y) = x mod y
+
+Answer:
+
+
+
+
+3.	 F(x,y) =  gcd (x,y)
+
+Answer:
+
+
+
+*/
