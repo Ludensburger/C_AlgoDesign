@@ -69,13 +69,17 @@ void placeQueen(int row, int col) {
         board[row][col] = 'Q';
         for (int i = 0; i < N; i++) {
             if (i != col)
-                board[row][i] = '*'; // Marking horizontal path
+                // Marking horizontal path
+                board[row][i] = '*';
             if (i != row)
-                board[i][col] = '*'; // Marking vertical path
+                // Marking vertical path
+                board[i][col] = '*';
             if (row + i < N && col + i < N)
-                board[row + i][col + i] = '*'; // Marking diagonal path (bottom-right)
+                // Marking diagonal path (bottom-right)
+                board[row + i][col + i] = '*';
             if (row - i >= 0 && col - i >= 0)
-                board[row - i][col - i] = '*'; // Marking diagonal path (top-left)
+                // Marking diagonal path (top-left)
+                board[row - i][col - i] = '*';
             if (row + i < N && col - i >= 0)
                 board[row + i][col - i] = '*'; // Marking diagonal path (bottom-left)
             if (row - i >= 0 && col + i < N)
