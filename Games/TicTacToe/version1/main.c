@@ -1,3 +1,33 @@
+// Author: Ryu R. Mendoza
+// Date: May 10, 2024
+// Description: A simple Tic-Tac-Toe game in C
+// Psuedo code:
+//
+// Initialize an empty 3x3 game board
+// Set currentPlayer to 'X'
+//
+// While the game is not over:
+//     Display the game board
+//     Print "currentPlayer's turn"
+//
+//     While not validMove:
+//         Ask currentPlayer for their move (row and column)
+//         If the move is valid (within the board and on an empty square):
+//             Update the game board with the currentPlayer's symbol at the chosen location
+//             Set validMove to true
+//         Else:
+//             Print "Invalid move. Try again."
+//
+//     If there's a win condition on the board for currentPlayer:
+//         Print "Game over, currentPlayer wins!"
+//         End the game
+//     Else if the board is full:
+//         Print "Game over, it's a draw!"
+//         End the game
+//     Else:
+//         Switch currentPlayer (if 'X', change to 'O'; if 'O', change to 'X')
+//         Set validMove to false
+
 #include <stdio.h>
 #include <stdlib.h>
 
