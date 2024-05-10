@@ -2,17 +2,29 @@
 
 Welcome to the Algorithms Repository! Here you'll find a collection of classic algorithms implemented in C and C++. Each algorithm is meticulously crafted and contained in its own directory, along with detailed explanations and examples.
 
-## Algorithms Included
+## Algorithms
 
-- **Bubble Sort:** Sorts an array by repeatedly swapping adjacent elements if they are in the wrong order.
-- **Dijkstra's Algorithm:** Finds the shortest path from a single source vertex to all other vertices in a weighted graph.
-- **Floyd-Warshall Algorithm:** Computes the shortest paths between all pairs of vertices in a weighted graph.
-- **Knapsack Problem:** Solves the 0/1 Knapsack problem using dynamic programming.
-- **Kruskal's Algorithm:** Constructs the minimum spanning tree of a graph by adding edges in increasing order of weight.
-- **Merge Sort:** Divides the array into two halves, sorts them recursively, and then merges the sorted halves.
-- **Pascal's Triangle:** Generates Pascal's Triangle, showcasing both iterative and recursive approaches.
-- **Prim's Algorithm:** Builds the minimum spanning tree of a graph by adding edges in increasing order of weight from a single source vertex.
-- **Warshall's Algorithm:** Computes the transitive closure of a directed graph using dynamic programming.
+- [Bubble Sort](BubbleSort/main.cpp)
+- [Dijkstra's Algorithm](DijkstrasAlgorithm/main.c)
+- [Floyd-Warshall Algorithm](Floyd-Warshall_Algorithm/main.c)
+- [Knapsack Problem](KnapsackProblem/main.c)
+- [Kruskal's Algorithm](KruskalsAlgorithm/main.c)
+- [Merge Sort](MergeSort/main.cpp)
+- [Pascal's Triangle](PascalTriangle/main.c)
+- [Prim's Algorithm](PrimsAlgorithm/main.c)
+- [Warshall's Algorithm](Warshall-Algorithm/main.c)
+- [Warshall's Algorithm with Matrix Input Version](Warshall-Algorithm/MatrixInput-Version/main.c)
+
+## Games
+
+- [Hangman](Games/Hangman/main.c)
+- [Tic Tac Toe](Games/TicTacToe/main.c)
+- [Queen's Puzzle](Games/QueensPuzzle/main.c)
+
+## Theoretical / Other
+
+- ### It's often used in theoretical computer science during proofs as a stand-in for Turing machines due to it's more familiar syntax
+  - [URM](URM/main.c)
 
 ## Running the Code
 
