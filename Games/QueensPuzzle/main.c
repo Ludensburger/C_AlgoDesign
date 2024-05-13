@@ -9,8 +9,11 @@ int queenCount = 0;
 char board[N][N];
 
 void initializeBoard() {
+
     for (int i = 0; i < N; i++) {
+
         for (int j = 0; j < N; j++) {
+
             board[i][j] = ' ';
         }
     }
@@ -32,21 +35,31 @@ void initializeBoard() {
 // }
 
 void displayBoard() {
+
     printf("  ");
+
     for (int i = 1; i <= N; i++) {
+
         printf(" %2d", i);
     }
+
     printf("\n");
+
     for (int i = 0; i < N; i++) {
+
         printf("%d |", i + 1);
+
         for (int j = 0; j < N; j++) {
+
             printf("%c |", board[i][j]);
         }
+
         printf("\n");
     }
 }
 
 bool canPlaceQueen(int row, int col) {
+
     for (int i = 0; i < N; i++) {
 
         if (board[row][i] == 'Q' || board[i][col] == 'Q') {
@@ -80,6 +93,7 @@ void placeQueen(int row, int col) {
         queenCount++;
 
         for (int i = 0; i < N; i++) {
+
             if (i != col) {
                 // Marking horizontal path
                 board[row][i] = '*';
