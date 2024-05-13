@@ -1,25 +1,21 @@
 #include <stdio.h>
 
-void PascalTriangleIterative(int n) {
+int combination(int n, int k) {
+    if (k == 0 || k == n) {
+        return 1;
+    }
+    return combination(n - 1, k - 1) + combination(n - 1, k);
+}
 
-    // base case for n = 0
+void PascalTriangleIterative(int n) {
     if (n <= 0) {
         printf("1\n");
         return;
     }
 
-    int coefficient[n + 1][n + 1];
-
-    coefficient[0][0] = 1;
-
     for (int i = 0; i <= n; i++) {
         for (int j = 0; j <= i; j++) {
-            if (j == 0 || j == i) {
-                coefficient[i][j] = 1;
-            } else {
-                coefficient[i][j] = coefficient[i - 1][j - 1] + coefficient[i - 1][j];
-            }
-            printf("%d ", coefficient[i][j]);
+            printf("%d ", combination(i, j));
         }
         printf("\n");
     }
@@ -27,8 +23,6 @@ void PascalTriangleIterative(int n) {
 }
 
 void PascalTriangleRecursive(int n, int arr[]) {
-
-    // base case for recursion
     if (n == 0) {
         arr[0] = 1;
         printf("%d\n", arr[0]);
@@ -37,14 +31,9 @@ void PascalTriangleRecursive(int n, int arr[]) {
 
     PascalTriangleRecursive(n - 1, arr);
 
-    for (int i = n; i > 0; i--) {
-
-        // Formula from book
-        // calculate the value of the current element
-        arr[i] = arr[i] + arr[i - 1];
+    for (int i = n; i >= 0; i--) {
+        arr[i] = combination(n, i);
     }
-
-    arr[0] = 1;
 
     for (int i = 0; i <= n; i++) {
         printf("%d ", arr[i]);
@@ -53,26 +42,19 @@ void PascalTriangleRecursive(int n, int arr[]) {
 }
 
 int main() {
-
     int n;
     printf("Pascal Triangle\n");
 
-    // Input
     printf("Enter n: ");
     scanf("%d", &n);
 
-    // Invokation
     PascalTriangleIterative(n);
 
-    // Initialization
-    // initialize array with 0
     int arr[n + 1];
     for (int i = 0; i <= n; i++) {
         arr[i] = 0;
     }
 
-    // Invokation
-    // pass the array to the recursive function
     PascalTriangleRecursive(n, arr);
 
     return 0;
