@@ -147,14 +147,14 @@ int checkBoard() {
 }
 
 // Solution for Queen's Puzzle
-//  R6 C1
-//  R2 C2
-//  R7 C3
-//  R1 C4
-//  R4 C5
-//  R8 C6
-//  R5 C7
-//  R3 C8
+// r1 col 4
+// r2 col 2
+// r3 col 8
+// r4 col 5
+// r5 col 7
+// r6 col 1
+// r7 col 3
+// r8 col 6
 
 int main() {
 
